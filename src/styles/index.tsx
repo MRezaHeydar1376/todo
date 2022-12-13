@@ -36,6 +36,18 @@ interface PropsButton {
     hoverBorder?: string;
 }
 
+interface PropsText {
+    fontSize?: string;
+    color?: string;
+    fontWeight?: string;
+    margin?: string;
+    cursor?: string;
+    position?: string;
+    top?: string;
+    left?: string;
+    colorHover?: string;
+}
+
 export const Div = styled.div<PropsDiv>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
@@ -84,5 +96,103 @@ export const Button = styled.button<PropsButton>`
     cursor: pointer;
     &:hover {
         border-bottom: ${({ hoverBorder = "none" }) => (hoverBorder ? hoverBorder : "none")};
+    }
+`
+export const H1 = styled.h1<PropsText>`
+    font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
+    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: ${({ margin = "0" }) => (margin ? margin : "0")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    &:hover{
+        color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
+    }
+`
+export const H2 = styled.h2<PropsText>`
+    font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
+    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: ${({ margin = "0" }) => (margin ? margin : "0")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    &:hover{
+        color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
+    }
+`
+export const H3 = styled.h3<PropsText>`
+    font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
+    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: ${({ margin = "0" }) => (margin ? margin : "0")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    &:hover{
+        color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
+    }
+`
+export const H4 = styled.h4<PropsText>`
+    font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
+    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: ${({ margin = "0" }) => (margin ? margin : "0")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    &:hover{
+        color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
+    }
+`
+export const H5 = styled.h5<PropsText>`
+    font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
+    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: ${({ margin = "0" }) => (margin ? margin : "0")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    &:hover{
+        color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
+    }
+`
+export const H6 = styled.h6<PropsText>`
+    font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
+    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: ${({ margin = "0" }) => (margin ? margin : "0")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    &:hover{
+        color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
+    }
+`
+export const Paragraph = styled.p<PropsText>`
+    font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
+    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: ${({ margin = "0" }) => (margin ? margin : "0")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    &:hover{
+        color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
     }
 `
