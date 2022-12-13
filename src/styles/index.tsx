@@ -24,6 +24,18 @@ interface PropsDiv {
     cursor?: string;
 }
 
+interface PropsButton {
+    width?: string;
+    height?: string;
+    backgrondColor?: string;
+    display?: string;
+    justify?: string;
+    align?: string;
+    border?: string;
+    borderRadius?: string;
+    hoverBorder?: string;
+}
+
 export const Div = styled.div<PropsDiv>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
@@ -60,10 +72,17 @@ export const Div = styled.div<PropsDiv>`
         height: 1px;
     }
 `
-
-export const GlobalStyles = css`
-    margin: 0;
-    padding: 0;
-    background-color: aqua;
-    height: 100vh;
+export const Button = styled.button<PropsButton>`
+    width: ${({ width = "100%" }) => (width ? width : "100%")};
+    height: ${({ height = "auto" }) => (height ? height : "auto")};
+    background-color: ${({ backgrondColor = "transparent" }) => (backgrondColor ? backgrondColor : "transparent")};
+    display: ${({ display = "block" }) => (display ? display : "block")};
+    justify-content: ${({ justify = "start" }) => (justify ? justify : "start")};
+    align-items: ${({ align = "flex-start" }) => (align ? align : "flex-start")};
+    border: ${({ border = "1px solid black" }) => (border ? border : "1px solid black")};
+    border-radius: ${({ borderRadius = "1px solid black" }) => (borderRadius ? borderRadius : "1px solid black")};
+    cursor: pointer;
+    &:hover {
+        border-bottom: ${({ hoverBorder = "none" }) => (hoverBorder ? hoverBorder : "none")};
+    }
 `
