@@ -48,6 +48,13 @@ interface PropsText {
     colorHover?: string;
 }
 
+interface PropsLine {
+    width?: string;
+    height?: string;
+    color?: string;
+    margin?: string;
+}
+
 export const Div = styled.div<PropsDiv>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
@@ -87,7 +94,7 @@ export const Div = styled.div<PropsDiv>`
 export const Button = styled.button<PropsButton>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
-    background-color: ${({ backgrondColor = "transparent" }) => (backgrondColor ? backgrondColor : "transparent")};
+    background: ${({ backgrondColor = "transparent" }) => (backgrondColor ? backgrondColor : "transparent")};
     display: ${({ display = "block" }) => (display ? display : "block")};
     justify-content: ${({ justify = "start" }) => (justify ? justify : "start")};
     align-items: ${({ align = "flex-start" }) => (align ? align : "flex-start")};
@@ -195,4 +202,11 @@ export const Paragraph = styled.p<PropsText>`
     &:hover{
         color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
     }
+`
+export const Line = styled.hr<PropsLine>`
+    width: ${({ width = "100%" }) => (width ? width : "100%")};
+    height: ${({ height = "auto" }) => (height ? height : "auto")};
+    background-color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    margin: ${({ margin = "0px" }) => (margin ? margin : "0px")};
+    padding: 0px;
 `
