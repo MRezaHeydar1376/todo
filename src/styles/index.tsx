@@ -84,6 +84,7 @@ export const Div = styled.div<PropsDiv>`
     border: ${({ border = "none" }) => (border ? border : "none")};
     z-index: ${({ zIndex = "1" }) => (zIndex ? zIndex : "1")};
     cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+    transition: 0.5s all linear;
     overflow-y: ${({ overflowY = "visible" }) => (overflowY ? overflowY : "visible")};
     overflow-x: ${({ overflowX = "visible" }) => (overflowX ? overflowX : "visible")};
     &::-webkit-scrollbar {
