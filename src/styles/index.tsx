@@ -53,6 +53,17 @@ interface PropsLine {
     height?: string;
     color?: string;
     margin?: string;
+    boxShadow?: string;
+}
+
+interface PropsImg {
+    borderRadius?: string;
+    width?: string;
+    height?: string;
+    position?: string;
+    top?: string;
+    left?: string;
+    cursor?: string;
 }
 
 export const Div = styled.div<PropsDiv>`
@@ -208,5 +219,15 @@ export const Line = styled.hr<PropsLine>`
     height: ${({ height = "auto" }) => (height ? height : "auto")};
     background-color: ${({ color = Color.black }) => (color ? color : Color.black)};
     margin: ${({ margin = "0px" }) => (margin ? margin : "0px")};
+    box-shadow: ${({ boxShadow = "none" }) => (boxShadow ? boxShadow : "none")};
     padding: 0px;
+`
+export const Img = styled.img<PropsImg>`
+    border-radius: ${({ borderRadius = "0%" }) => (borderRadius ? borderRadius : "0%")};
+    width: ${({ width = "100%" }) => (width ? width : "100%")};
+    height: ${({ height = "auto" }) => (height ? height : "auto")};
+    position: ${({ position = "block" }) => (position ? position : "block")};
+    top: ${({ top = "0px" }) => (top ? top : "0px")};
+    left: ${({ left = "0px" }) => (left ? left : "0px")};
+    cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
 `
