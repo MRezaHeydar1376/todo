@@ -24,7 +24,12 @@ function Home() {
         }
     };
 
-    function compeletTask() {
+    function removeTask(id: string) {
+        store.removeTodo(id)
+    };
+
+    function clearAll() {
+        store.clearAll()
     };
 
     return (
@@ -42,15 +47,26 @@ function Home() {
                     value={task}
                 />
                 <Button
-                    width="100px"
+                    width="120px"
                     height="40px"
                     border="none"
-                    borderRadius="0 8px 8px 0"
                     backgrondColor={Color.green}
                     onClick={submit}
                 >
-                    <H5 cursor="pointer" fontSize="15px" fontWeight="700">
+                    <H5 cursor="pointer" fontSize="12px" fontWeight="700">
                         ADD
+                    </H5>
+                </Button>
+                <Button
+                    width="120px"
+                    height="40px"
+                    border="none"
+                    borderRadius="0 8px 8px 0"
+                    backgrondColor={Color.red}
+                    onClick={clearAll}
+                >
+                    <H5 cursor="pointer" fontSize="12px" fontWeight="700">
+                        CLEAR ALL
                     </H5>
                 </Button>
             </Div>
@@ -66,11 +82,15 @@ function Home() {
                 overflowX="hidden"
             >
                 {store.todos.map(todo => (
-                    <Card 
-                        text={todo.text}
-                        isCompleted={todo.isCompleted} 
-                        completeTask={todo.toggleState}                    
-                    />
+                    <Div key={todo.id}>
+                        <Card
+                            id={todo.id}
+                            text={todo.text}
+                            isCompleted={todo.isCompleted}
+                            completeTask={todo.toggleState}
+                            removeTask={removeTask}
+                        />
+                    </Div>
                 ))}
             </Div>
         </Div>
