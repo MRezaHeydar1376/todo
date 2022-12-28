@@ -28,6 +28,10 @@ function Home() {
         store.removeTodo(id)
     };
 
+    function editTask(id: string, text: string) {
+        store.editTodo(id, text)
+    };
+
     function clearAll() {
         store.clearAll()
     };
@@ -88,7 +92,8 @@ function Home() {
                             text={todo.text}
                             isCompleted={todo.isCompleted}
                             completeTask={todo.toggleState}
-                            removeTask={removeTask}
+                            removeTask={removeTask} 
+                            editTask={editTask}
                         />
                     </Div>
                 ))}
