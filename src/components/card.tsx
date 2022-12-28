@@ -1,13 +1,16 @@
 import { ChangeEvent } from "react";
-import { Div, Input, Line, Paragraph } from "../styles";
+import { Trash } from "../assets";
+import { Div, Img, Input, Line, Paragraph } from "../styles";
 
 interface Props {
+    id: string;
     text: string;
     isCompleted: boolean;
     completeTask(): void;
+    removeTask(id: string): void;
 }
 
-function Card({ text, isCompleted, completeTask }: Props) {
+function Card({ id ,text, isCompleted, completeTask, removeTask }: Props) {
 
     return (
         <>
@@ -36,6 +39,14 @@ function Card({ text, isCompleted, completeTask }: Props) {
                         height="30%"
                         checked={isCompleted}
                         onChange={completeTask}
+                        margin="0 10px"
+                    />
+                    <Img
+                        src={Trash}
+                        width="20px"
+                        height="25px"
+                        cursor="pointer"
+                        onClick={() => removeTask(id)}
                     />
                 </Div>
             </Div>
