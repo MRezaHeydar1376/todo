@@ -38,7 +38,7 @@ function Home() {
             <SideCard />
             <Div position="relative" width="50%" margin="0 auto" display="flex">
                 <Input
-                    border={`1px solid ${Color.blue}`}
+                    border="1px solid transparent"
                     borderRadius="8px 0 0 8px"
                     height="40px"
                     padding="0 8px"
@@ -75,7 +75,7 @@ function Home() {
                 width="50%"
                 height="350px"
                 margin="20px auto"
-                border={`1px solid ${Color.blue}`}
+                border="1px solid transparent"
                 borderRadius="8px"
                 backgroundColor={Color.white}
                 overflowY="auto"
