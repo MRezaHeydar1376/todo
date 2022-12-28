@@ -18,6 +18,12 @@ export const RootStore = types
                 self.todos.remove(matchedTodo)
             )
         },
+        editTodo(id: string, newText: string) {
+            const matchedTodo = self.todos.find(todo => todo.id === id)
+            if (matchedTodo) (
+                matchedTodo.setText(newText)
+            )
+        },
         clearAll() {
             self.todos.clear()
         }
