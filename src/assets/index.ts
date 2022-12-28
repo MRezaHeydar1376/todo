@@ -4,5 +4,7 @@ export { default as Moon } from "./icons/moon.svg";
 export { default as IranFlag } from "./icons/iran-flag.svg";
 export { default as UsaFlag } from "./icons/usa-flag.svg";
 export { default as Trash } from "./icons/trash.svg";
+export { default as Edit } from "./icons/edit.svg";
+export { default as Close } from "./icons/close.svg";
 export { default as BackgroundLight } from "./images/background-light.webp";
 export { default as BackgroundDark } from "./images/background-dark.webp";
