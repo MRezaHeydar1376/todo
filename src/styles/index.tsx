@@ -66,6 +66,16 @@ interface PropsImg {
     cursor?: string;
 }
 
+interface PropsInput {
+    width?: string;
+    height?: string;
+    backgroundColor?: string;
+    padding?: string;
+    border?: string;
+    borderRadius?: string;
+    margin?: string;
+}
+
 export const Div = styled.div<PropsDiv>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
@@ -88,7 +98,7 @@ export const Div = styled.div<PropsDiv>`
     overflow-y: ${({ overflowY = "visible" }) => (overflowY ? overflowY : "visible")};
     overflow-x: ${({ overflowX = "visible" }) => (overflowX ? overflowX : "visible")};
     &::-webkit-scrollbar {
-        width: 10px;
+        width: 7px;
         height: 8px !important;
     }
     &::-webkit-scrollbar-track {
@@ -98,7 +108,7 @@ export const Div = styled.div<PropsDiv>`
 
     }
     &::-webkit-scrollbar-thumb {
-        background: #b49dd8;
+        background: #214fdb;
         border-radius: 50px;
         height: 1px;
     }
@@ -214,6 +224,7 @@ export const Paragraph = styled.p<PropsText>`
     &:hover{
         color: ${({ colorHover = "none" }) => (colorHover ? colorHover : "none")};
     }
+    word-break: break-all;
 `
 export const Line = styled.hr<PropsLine>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
@@ -231,4 +242,24 @@ export const Img = styled.img<PropsImg>`
     top: ${({ top = "0px" }) => (top ? top : "0px")};
     left: ${({ left = "0px" }) => (left ? left : "0px")};
     cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
+`
+export const Input = styled.input<PropsInput>`
+    width: ${({ width = "100%" }) => (width ? width : "100%")};
+    height: ${({ height = "auto" }) => (height ? height : "auto")};
+    background-color: ${({ backgroundColor = "tranparent" }) => (backgroundColor ? backgroundColor : "tranparent")};
+    padding: ${({ padding = "0px" }) => (padding ? padding : "0px")};
+    border: ${({ border = "0.5px solid black" }) => (border ? border : "0.5px solid black")};
+    border-radius: ${({ borderRadius = "0px" }) => (borderRadius ? borderRadius : "0px")};
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    margin: ${({ margin = "0px" }) => (margin ? margin : "0px")};
+    &::placeholder {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 500;
+        padding: 0 8px;
+    }
+    &:focus {
+        outline: none;
+    }
 `
