@@ -1,20 +1,26 @@
 import { Global, css } from '@emotion/react'
 import React from 'react';
 import Home from './pages';
+import { StoreProvider } from './stores/context';
+import { RootStore } from './stores/root';
+
+const store = RootStore.create({})
 
 function App() {
   return (
-    <div>
-      <Global
-        styles={css`
+    <StoreProvider store={store}>
+      <div>
+        <Global
+          styles={css`
          body{
             margin: 0;
             padding: 0;
           }
         `}
-      />
-      <Home />
-    </div>
+        />
+        <Home />
+      </div>
+    </StoreProvider>
   );
 }
 
