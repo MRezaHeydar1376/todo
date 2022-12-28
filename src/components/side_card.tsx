@@ -26,7 +26,7 @@ function SideCard() {
     }, [wrapperRef]);
 
     return (
-        <Div width="120px" height="120px" display="flex" margin="10px 0">
+        <Div width="120px" height="120px" display="flex" padding="10px 0">
             {sideBar ? (
                 <Div ref={wrapperRef} width="80%" height="100%" backgroundColor="linear-gradient(165deg, rgba(12,0,255,1) 0%, rgba(33,192,222,1) 52%)" borderRadius="8px" display="flex" direction="column" align="center" justify="center">
                     <SwitchButton
