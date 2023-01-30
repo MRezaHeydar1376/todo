@@ -1,7 +1,8 @@
+import { useTheme } from "@emotion/react";
 import { ChangeEvent, useState } from "react";
-import { Close, Edit, Trash } from "../assets";
+import { Close, Edit, EditWhite, Trash } from "../assets";
+import { useStore } from "../stores/context";
 import { Button, Div, H5, H6, Img, Input, Line, Paragraph } from "../styles";
-import { Color } from "../variables";
 
 interface Props {
     id: string;
@@ -16,6 +17,8 @@ function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Pro
 
     const [task, setTask] = useState("");
     const [edit, setEdit] = useState(false);
+    const theme = useTheme();
+    const { darkTheme } = useStore();
 
     function getValue(event: ChangeEvent<HTMLInputElement>) {
         setTask(event.target.value);
@@ -46,7 +49,7 @@ function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Pro
                 {edit ? (
                     <Div display="flex" align="center" height="100%">
                         <Input
-                            border={`1px solid ${Color.blue}`}
+                            border={`1px solid ${theme.blue}`}
                             borderRadius="8px 0 0 8px"
                             height="40px"
                             padding="0 8px"
@@ -59,7 +62,7 @@ function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Pro
                             height="40px"
                             border="none"
                             borderRadius="0 8px 8px 0"
-                            backgrondColor={Color.green}
+                            backgrondColor={theme.green}
                             onClick={submit}
                         >
                             <H5 cursor="pointer" fontSize="12px" fontWeight="700">
@@ -72,7 +75,7 @@ function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Pro
                             border="none"
                             onClick={closeEdit}
                         >
-                            <Img src={Close} width="30px"/>
+                            <Img src={Close} width="30px" />
                         </Button>
                     </Div>
                 ) : (
@@ -84,7 +87,7 @@ function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Pro
                             overflowY="auto"
                             overflowX="hidden"
                         >
-                            <Paragraph fontSize="12px" fontWeight="400">
+                            <Paragraph fontSize="12px" fontWeight="400" >
                                 {text}
                             </Paragraph>
                         </Div>
@@ -112,9 +115,9 @@ function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Pro
                                 onClick={() => removeTask(id)}
                             />
                             <Img
-                                src={Edit}
-                                width="20px"
-                                height="25px"
+                                src={darkTheme ? EditWhite : Edit}
+                                width="26px"
+                                height="28px"
                                 cursor="pointer"
                                 onClick={showEdit}
                             />

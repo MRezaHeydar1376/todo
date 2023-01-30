@@ -1,17 +1,25 @@
-import { IranFlag, Moon, Setting, Sun, UsaFlag } from "../assets";
+import { IranFlag, Moon, Setting, SettingWhite, Sun, UsaFlag } from "../assets";
 import { Div, Img } from "../styles";
-import { Color } from "../variables";
 import SwitchButton from "./switch_button";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useTheme } from "@emotion/react";
+import { useStore } from "../stores/context";
+import { observer } from "mobx-react-lite";
 
 function SideCard() {
 
     const [sideBar, setSideBar] = useState(false);
     const wrapperRef: any = useRef(null);
+    const {darkTheme, toggleTheme} = useStore();
+    const theme = useTheme();
 
     const showSideBar = () => {
         setSideBar(true)
     };
+
+    const changeTheme = () => {
+        toggleTheme();
+    }
 
     useEffect(() => {
         function handleClickOutside(event: any) {
@@ -32,15 +40,17 @@ function SideCard() {
                     <SwitchButton
                         image1={Sun}
                         image2={Moon}
-                        color1={Color.blackYellow}
-                        color2={Color.blackBlue}
+                        color1={theme.blackYellow}
+                        color2={theme.blackBlue}
+                        onClick={changeTheme}
                     />
                     <SwitchButton
                         image1={IranFlag}
                         image2={UsaFlag}
-                        color1={Color.lime}
-                        color2={Color.blackBlue}
-                    />
+                        color1={theme.lime}
+                        color2={theme.blackBlue} 
+                        onClick={() => {}} 
+                        />
                 </Div>
             ) : null}
             <Div
@@ -48,11 +58,12 @@ function SideCard() {
                 height="15%"
                 display="flex"
                 align="center"
+                backgroundColor="transparent"
             >
-                <Img src={Setting} cursor="pointer" onClick={showSideBar} />
+                <Img src={darkTheme ? SettingWhite : Setting} cursor="pointer" onClick={showSideBar} />
             </Div>
         </Div>
     );
 }
 
-export default SideCard;
+export default observer(SideCard);
