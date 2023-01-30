@@ -1,14 +1,16 @@
+import { useTheme } from "@emotion/react";
 import { observer } from "mobx-react-lite";
 import { ChangeEvent, useState } from "react";
 import { BackgroundDark, BackgroundLight } from "../assets";
-import { Card, SideCard, SwitchButton } from "../components";
+import { Card, SideCard } from "../components";
 import { useStore } from "../stores/context";
 import { Button, Div, H5, Img, Input } from "../styles";
-import { Color } from "../variables";
 
 function Home() {
     const store = useStore();
     const [task, setTask] = useState("");
+    const theme = useTheme();
+
 
     function getValue(event: ChangeEvent<HTMLInputElement>) {
         setTask(event.target.value)
@@ -38,7 +40,7 @@ function Home() {
 
     return (
         <Div position="relative" height="100vh">
-            <Img src={BackgroundLight} height="100%" position="absolute" top="0px" left="0px" />
+            <Img src={store.darkTheme ?  BackgroundDark : BackgroundLight} height="100%" position="absolute" top="0px" left="0px" />
             <SideCard />
             <Div position="relative" width="50%" margin="0 auto" display="flex">
                 <Input
@@ -54,7 +56,7 @@ function Home() {
                     width="120px"
                     height="40px"
                     border="none"
-                    backgrondColor={Color.green}
+                    backgrondColor={theme.green}
                     onClick={submit}
                 >
                     <H5 cursor="pointer" fontSize="12px" fontWeight="700">
@@ -66,7 +68,7 @@ function Home() {
                     height="40px"
                     border="none"
                     borderRadius="0 8px 8px 0"
-                    backgrondColor={Color.red}
+                    backgrondColor={theme.red}
                     onClick={clearAll}
                 >
                     <H5 cursor="pointer" fontSize="12px" fontWeight="700">
@@ -81,7 +83,7 @@ function Home() {
                 margin="20px auto"
                 border="1px solid transparent"
                 borderRadius="8px"
-                backgroundColor={Color.white}
+                backgroundColor={theme.black}
                 overflowY="auto"
                 overflowX="hidden"
             >
@@ -92,7 +94,7 @@ function Home() {
                             text={todo.text}
                             isCompleted={todo.isCompleted}
                             completeTask={todo.toggleState}
-                            removeTask={removeTask} 
+                            removeTask={removeTask}
                             editTask={editTask}
                         />
                     </Div>
