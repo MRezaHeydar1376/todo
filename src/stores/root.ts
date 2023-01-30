@@ -3,7 +3,8 @@ import { Todo } from './todo';
 
 export const RootStore = types
     .model("Root", ({
-        todos: types.optional(types.array(Todo), [])
+        todos: types.optional(types.array(Todo), []),
+        darkTheme: false
     }))
     .actions(self => ({
         addTodo(text: string) {
@@ -26,6 +27,9 @@ export const RootStore = types
         },
         clearAll() {
             self.todos.clear()
+        },
+        toggleTheme() {
+            self.darkTheme = !self.darkTheme
         }
     }))
     .views(self => ({
