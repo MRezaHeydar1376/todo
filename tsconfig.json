@@ -23,6 +23,7 @@
   },
   "include": [
     "src",
-    "types.d.ts"
-  ]
+    "types.d.ts",
+    "src/theme.d.ts"
+  ],
 }
