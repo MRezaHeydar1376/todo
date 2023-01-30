@@ -1,78 +1,56 @@
 import styled from "@emotion/styled/macro";
 
-interface PropsDiv {
+interface Props {
     width?: string;
     height?: string;
     display?: string;
     justify?: string;
     align?: string;
+    backgroundColor?: string;
+    border?: string;
+    borderRadius?: string;
+    cursor?: string;
+    padding?: string;
+    margin?: string;
+}
+
+interface PropsDiv extends Props {
     direction?: string;
     position?: string;
     top?: string;
     left?: string;
-    backgroundColor?: string;
     boxShadow?: string;
-    border?: string;
-    borderRadius?: string;
-    padding?: string;
     overflowY?: string;
     overflowX?: string;
-    margin?: string;
     zIndex?: string;
-    cursor?: string;
 }
 
-interface PropsButton {
-    width?: string;
-    height?: string;
-    backgrondColor?: string;
-    display?: string;
-    justify?: string;
-    align?: string;
-    border?: string;
-    borderRadius?: string;
+interface PropsButton extends Props {
     hoverBorder?: string;
 }
 
-interface PropsText {
+interface PropsText extends Props {
     fontSize?: string;
     color?: string;
     fontWeight?: string;
-    margin?: string;
-    cursor?: string;
     position?: string;
     top?: string;
     left?: string;
     colorHover?: string;
 }
 
-interface PropsLine {
-    width?: string;
-    height?: string;
+interface PropsLine extends Props {
     color?: string;
-    margin?: string;
     boxShadow?: string;
 }
 
-interface PropsImg {
-    borderRadius?: string;
-    width?: string;
-    height?: string;
+interface PropsImg extends Props {
     position?: string;
     top?: string;
     left?: string;
-    cursor?: string;
 }
 
-interface PropsInput {
-    width?: string;
-    height?: string;
-    backgroundColor?: string;
-    padding?: string;
-    border?: string;
-    borderRadius?: string;
-    margin?: string;
-}
+interface PropsInput extends Props {}
 
 export const Div = styled.div<PropsDiv>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
@@ -113,7 +91,7 @@ export const Div = styled.div<PropsDiv>`
 export const Button = styled.button<PropsButton>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
-    background: ${({ backgrondColor = "transparent" }) => (backgrondColor ? backgrondColor : "transparent")};
+    background: ${({ backgroundColor = "transparent" }) => (backgroundColor ? backgroundColor : "transparent")};
     display: ${({ display = "block" }) => (display ? display : "block")};
     justify-content: ${({ justify = "start" }) => (justify ? justify : "start")};
     align-items: ${({ align = "flex-start" }) => (align ? align : "flex-start")};
