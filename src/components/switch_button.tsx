@@ -1,20 +1,22 @@
+import { useTheme } from "@emotion/react";
 import { useState } from "react";
-import { Moon, Sun } from "../assets";
 import { Div, Img } from "../styles";
-import { Color } from "../variables";
 
 interface Props {
     image1: string;
     image2: string;
     color1: string;
     color2: string;
+    onClick(): void;
 }
 
-function SwitchButton({ image1, image2, color1, color2 }: Props) {
+function SwitchButton({ image1, image2, color1, color2, onClick }: Props) {
 
     const [active, setActive] = useState(1);
+    const theme = useTheme();
 
     function changeButton(id: number) {
+        onClick()
         if (id === 1) {
             setActive(1);
         } else {
@@ -28,7 +30,7 @@ function SwitchButton({ image1, image2, color1, color2 }: Props) {
                 onClick={() => changeButton(1)}
                 width="23px"
                 height="23px"
-                backgroundColor={Color.darkGray}
+                backgroundColor={theme.darkGray}
                 borderRadius="100%"
                 border={active === 1 ? `1px solid ${color1}` : "1px solid transparent"}
             >
@@ -38,7 +40,7 @@ function SwitchButton({ image1, image2, color1, color2 }: Props) {
                 onClick={() => changeButton(2)}
                 width="23px"
                 height="23px"
-                backgroundColor={Color.darkGray}
+                backgroundColor={theme.darkGray}
                 borderRadius="100%"
                 border={active === 2 ? `1px solid ${color2}` : "1px solid transparent"}
             >
