@@ -60,7 +60,7 @@ function Card({ id, text, removeTask, editTask }: Props) {
                             height="40px"
                             border="none"
                             borderRadius="0 8px 8px 0"
-                            backgrondColor={theme.green}
+                            backgroundColor={theme.green}
                             onClick={submit}
                         >
                             <H5 cursor="pointer" fontSize="12px" fontWeight="700">

@@ -55,7 +55,7 @@ function Home() {
                     width="120px"
                     height="40px"
                     border="none"
-                    backgrondColor={theme.green}
+                    backgroundColor={theme.green}
                     onClick={submit}
                 >
                     <H5 cursor="pointer" fontSize="12px" fontWeight="700">
@@ -67,7 +67,7 @@ function Home() {
                     height="40px"
                     border="none"
                     borderRadius="0 8px 8px 0"
-                    backgrondColor={theme.red}
+                    backgroundColor={theme.red}
                     onClick={clearAll}
                 >
                     <H5 cursor="pointer" fontSize="12px" fontWeight="700">
