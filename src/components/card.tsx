@@ -7,13 +7,11 @@ import { Button, Div, H5, H6, Img, Input, Line, Paragraph } from "../styles";
 interface Props {
     id: string;
     text: string;
-    isCompleted: boolean;
-    completeTask(): void;
     removeTask(id: string): void;
     editTask(id: string, text: string): void;
 }
 
-function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Props) {
+function Card({ id, text, removeTask, editTask }: Props) {
 
     const [task, setTask] = useState("");
     const [edit, setEdit] = useState(false);
@@ -96,17 +94,10 @@ function Card({ id, text, isCompleted, completeTask, removeTask, editTask }: Pro
                             width="19%"
                             height="100%"
                             display="flex"
-                            justify="space-between"
+                            justify="space-around"
                             align="center"
                             padding="0 20px"
                         >
-                            <Input
-                                type="checkbox"
-                                width="30%"
-                                height="30%"
-                                checked={isCompleted}
-                                onChange={completeTask}
-                            />
                             <Img
                                 src={Trash}
                                 width="20px"

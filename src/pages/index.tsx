@@ -11,7 +11,6 @@ function Home() {
     const [task, setTask] = useState("");
     const theme = useTheme();
 
-
     function getValue(event: ChangeEvent<HTMLInputElement>) {
         setTask(event.target.value)
     };
@@ -92,8 +91,6 @@ function Home() {
                         <Card
                             id={todo.id}
                             text={todo.text}
-                            isCompleted={todo.isCompleted}
-                            completeTask={todo.toggleState}
                             removeTask={removeTask}
                             editTask={editTask}
                         />
