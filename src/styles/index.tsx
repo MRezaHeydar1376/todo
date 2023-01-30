@@ -1,6 +1,4 @@
 import styled from "@emotion/styled/macro";
-import { Color } from "../variables";
-import { css } from '@emotion/react'
 
 interface PropsDiv {
     width?: string;
@@ -87,14 +85,13 @@ export const Div = styled.div<PropsDiv>`
     top: ${({ top = "0px" }) => (top ? top : "0px")};
     left: ${({ left = "none" }) => (left ? left : "none")};
     padding: ${({ padding = "0px" }) => (padding ? padding : "0px")};
-    background: ${({ backgroundColor = "transparent" }) => (backgroundColor ? backgroundColor : "transparent")};
+    background: ${({ backgroundColor = "transparent" }) => backgroundColor ? backgroundColor : "transparent"};
     box-shadow: ${({ boxShadow = "none" }) => (boxShadow ? boxShadow : "none")};
     border-radius: ${({ borderRadius = "0px" }) => (borderRadius ? borderRadius : "0px")};
     margin: ${({ margin = "0px" }) => (margin ? margin : "0px")};
     border: ${({ border = "none" }) => (border ? border : "none")};
     z-index: ${({ zIndex = "1" }) => (zIndex ? zIndex : "1")};
     cursor: ${({ cursor = "auto" }) => (cursor ? cursor : "auto")};
-    transition: 0.5s all linear;
     overflow-y: ${({ overflowY = "visible" }) => (overflowY ? overflowY : "visible")};
     overflow-x: ${({ overflowX = "visible" }) => (overflowX ? overflowX : "visible")};
     &::-webkit-scrollbar {
@@ -129,7 +126,7 @@ export const Button = styled.button<PropsButton>`
 `
 export const H1 = styled.h1<PropsText>`
     font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
-    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    color: ${({ theme }) => theme.white};
     font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
     font-family: 'Roboto Condensed', sans-serif;
     margin: ${({ margin = "0" }) => (margin ? margin : "0")};
@@ -143,7 +140,7 @@ export const H1 = styled.h1<PropsText>`
 `
 export const H2 = styled.h2<PropsText>`
     font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
-    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    color: ${({ theme }) => theme.white};
     font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
     font-family: 'Roboto Condensed', sans-serif;
     margin: ${({ margin = "0" }) => (margin ? margin : "0")};
@@ -157,7 +154,7 @@ export const H2 = styled.h2<PropsText>`
 `
 export const H3 = styled.h3<PropsText>`
     font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
-    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    color: ${({ theme }) => theme.white};
     font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
     font-family: 'Roboto Condensed', sans-serif;
     margin: ${({ margin = "0" }) => (margin ? margin : "0")};
@@ -171,7 +168,7 @@ export const H3 = styled.h3<PropsText>`
 `
 export const H4 = styled.h4<PropsText>`
     font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
-    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    color: ${({ theme }) => theme.white};
     font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
     font-family: 'Roboto Condensed', sans-serif;
     margin: ${({ margin = "0" }) => (margin ? margin : "0")};
@@ -185,7 +182,7 @@ export const H4 = styled.h4<PropsText>`
 `
 export const H5 = styled.h5<PropsText>`
     font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
-    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    color: ${({ theme }) => theme.white};
     font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
     font-family: 'Roboto Condensed', sans-serif;
     margin: ${({ margin = "0" }) => (margin ? margin : "0")};
@@ -199,7 +196,7 @@ export const H5 = styled.h5<PropsText>`
 `
 export const H6 = styled.h6<PropsText>`
     font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
-    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    color: ${({ theme }) => theme.white};
     font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
     font-family: 'Roboto Condensed', sans-serif;
     margin: ${({ margin = "0" }) => (margin ? margin : "0")};
@@ -213,7 +210,7 @@ export const H6 = styled.h6<PropsText>`
 `
 export const Paragraph = styled.p<PropsText>`
     font-size: ${({ fontSize = "auto" }) => (fontSize ? fontSize : "auto")};
-    color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    color: ${({ theme }) => theme.white};
     font-weight: ${({ fontWeight = "500" }) => (fontWeight ? fontWeight : "500")};
     font-family: 'Roboto Condensed', sans-serif;
     margin: ${({ margin = "0" }) => (margin ? margin : "0")};
@@ -229,7 +226,7 @@ export const Paragraph = styled.p<PropsText>`
 export const Line = styled.hr<PropsLine>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
-    background-color: ${({ color = Color.black }) => (color ? color : Color.black)};
+    background-color: ${({ theme }) => theme.white};
     margin: ${({ margin = "0px" }) => (margin ? margin : "0px")};
     box-shadow: ${({ boxShadow = "none" }) => (boxShadow ? boxShadow : "none")};
     padding: 0px;
@@ -246,7 +243,8 @@ export const Img = styled.img<PropsImg>`
 export const Input = styled.input<PropsInput>`
     width: ${({ width = "100%" }) => (width ? width : "100%")};
     height: ${({ height = "auto" }) => (height ? height : "auto")};
-    background-color: ${({ backgroundColor = "tranparent" }) => (backgroundColor ? backgroundColor : "tranparent")};
+    background-color: ${({ theme }) => theme.black};
+    color: ${({ theme }) => theme.white};
     padding: ${({ padding = "0px" }) => (padding ? padding : "0px")};
     border: ${({ border = "0.5px solid black" }) => (border ? border : "0.5px solid black")};
     border-radius: ${({ borderRadius = "0px" }) => (borderRadius ? borderRadius : "0px")};
